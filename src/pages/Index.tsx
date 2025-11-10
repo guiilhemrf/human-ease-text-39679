@@ -95,15 +95,15 @@ const Index = () => {
   const isOverLimit = remainingChars < 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/30 to-background">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 border border-primary/20 bg-card text-primary mb-4">
             <Sparkles className="w-4 h-4" />
             <span className="text-sm font-medium">Guilhems Fucking Humanizer</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-6xl font-bold text-primary">
             Guilhems Fucking Humanizer
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -114,7 +114,7 @@ const Index = () => {
         {/* Configuration Cards */}
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {/* Writing Style Selector */}
-          <Card className="p-6 shadow-lg">
+          <Card className="p-6 border-border">
             <div className="space-y-4">
               <div>
                 <h3 className="font-semibold mb-1">Writing Style</h3>
@@ -135,7 +135,7 @@ const Index = () => {
           </Card>
 
           {/* Personality Input */}
-          <Card className="p-6 shadow-lg">
+          <Card className="p-6 border-border">
             <div className="space-y-4">
               <div>
                 <h3 className="font-semibold mb-1">Personality (Optional)</h3>
@@ -155,10 +155,10 @@ const Index = () => {
         {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-6 mb-8">
           {/* Input Section */}
-          <Card className="p-6 space-y-4 shadow-lg hover:shadow-xl transition-shadow">
+          <Card className="p-6 space-y-4 border-border hover:border-primary/50 transition-colors">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold flex items-center gap-2">
-                <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">
+                <span className="w-8 h-8 border border-primary flex items-center justify-center text-primary text-sm font-bold">
                   1
                 </span>
                 Original Text
@@ -177,10 +177,10 @@ const Index = () => {
           </Card>
 
           {/* Output Section */}
-          <Card className="p-6 space-y-4 shadow-lg hover:shadow-xl transition-shadow">
+          <Card className="p-6 space-y-4 border-border hover:border-primary/50 transition-colors">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold flex items-center gap-2">
-                <span className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent text-sm font-bold">
+                <span className="w-8 h-8 border border-primary flex items-center justify-center text-primary text-sm font-bold">
                   2
                 </span>
                 Humanized Text
@@ -201,7 +201,7 @@ const Index = () => {
               placeholder="Your humanized text will appear here..."
               value={outputText}
               readOnly
-              className="min-h-[400px] resize-none text-base leading-relaxed bg-muted/30"
+              className="min-h-[400px] resize-none text-base leading-relaxed bg-muted"
             />
           </Card>
         </div>
@@ -212,7 +212,7 @@ const Index = () => {
             onClick={handleHumanize}
             disabled={isLoading || !inputText.trim() || isOverLimit}
             size="lg"
-            className="gap-2 px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+            className="gap-2 px-8 py-6 text-lg font-semibold transition-all"
           >
             {isLoading ? (
               <>
@@ -231,8 +231,8 @@ const Index = () => {
 
         {/* Features */}
         <div className="grid md:grid-cols-3 gap-6 mt-16">
-          <Card className="p-6 text-center space-y-3 border-primary/20 hover:border-primary/40 transition-colors">
-            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+          <Card className="p-6 text-center space-y-3 border-border hover:border-primary/50 transition-colors">
+            <div className="w-12 h-12 border border-primary flex items-center justify-center mx-auto">
               <Sparkles className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-semibold text-lg">AI-Powered</h3>
@@ -241,9 +241,9 @@ const Index = () => {
             </p>
           </Card>
 
-          <Card className="p-6 text-center space-y-3 border-accent/20 hover:border-accent/40 transition-colors">
-            <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto">
-              <ArrowRight className="w-6 h-6 text-accent" />
+          <Card className="p-6 text-center space-y-3 border-border hover:border-primary/50 transition-colors">
+            <div className="w-12 h-12 border border-primary flex items-center justify-center mx-auto">
+              <ArrowRight className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-semibold text-lg">Instant Results</h3>
             <p className="text-sm text-muted-foreground">
@@ -251,8 +251,8 @@ const Index = () => {
             </p>
           </Card>
 
-          <Card className="p-6 text-center space-y-3 border-primary/20 hover:border-primary/40 transition-colors">
-            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+          <Card className="p-6 text-center space-y-3 border-border hover:border-primary/50 transition-colors">
+            <div className="w-12 h-12 border border-primary flex items-center justify-center mx-auto">
               <Copy className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-semibold text-lg">Easy to Use</h3>
