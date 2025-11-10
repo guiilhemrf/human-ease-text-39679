@@ -63,6 +63,9 @@ export default {
           light: "hsl(25, 90%, 60%)",
         },
       },
+      fontFamily: {
+        'logo': ['Righteous', 'cursive'],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

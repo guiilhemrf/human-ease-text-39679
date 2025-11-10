@@ -101,10 +101,10 @@ const Index = () => {
         <div className="text-center mb-12 space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 border border-primary/20 bg-card text-primary mb-4">
             <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-medium">Guilhems Fucking Humanizer</span>
+            <span className="text-sm font-medium font-logo">The Best Fucking Humanizer</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-primary">
-            Guilhems Fucking Humanizer
+          <h1 className="text-5xl md:text-6xl font-bold text-primary font-logo">
+            The Best Fucking Humanizer
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Transform text into authentic human writing using patterns from doctoral dissertations, published literature, and peer-reviewed scholarly works—100% human-written training sources.
