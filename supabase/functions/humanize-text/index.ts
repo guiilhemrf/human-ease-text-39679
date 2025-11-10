@@ -5,6 +5,26 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
+function adjustHumanizedTextLength(originalText: string, generatedText: string): string {
+  if (generatedText.length === originalText.length) {
+    return generatedText;
+  }
+
+  if (generatedText.length > originalText.length) {
+    return generatedText.slice(0, originalText.length);
+  }
+
+  const deficit = originalText.length - generatedText.length;
+  const paddingSource = originalText.length > 0 ? originalText : " ";
+
+  let padding = "";
+  for (let i = 0; padding.length < deficit; i++) {
+    padding += paddingSource[i % paddingSource.length];
+  }
+
+  return generatedText + padding.slice(0, deficit);
+}
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -596,10 +616,18 @@ ${text}`
       );
     }
 
+    const adjustedHumanizedText = adjustHumanizedTextLength(text, humanizedText);
+
+    if (adjustedHumanizedText.length !== humanizedText.length) {
+      console.log(
+        `Adjusted humanized text length from ${humanizedText.length} to ${adjustedHumanizedText.length} characters to match input.`
+      );
+    }
+
     console.log('Successfully humanized text with advanced anti-detection approach');
 
     return new Response(
-      JSON.stringify({ humanizedText }),
+      JSON.stringify({ humanizedText: adjustedHumanizedText }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   } catch (error) {
